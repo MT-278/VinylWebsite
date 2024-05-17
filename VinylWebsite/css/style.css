@@ -1,0 +1,580 @@
+/* Общие стили */
+body {
+  font-size: 18px;
+  color: rgb(24, 13, 0);
+  background-color: #fcecdb;
+  font-family: "EB Garamond", serif;
+  font-weight: 500;
+  scroll-behavior: smooth;
+}
+
+/* Сброс стилей */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Контейнер */
+#container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+  background-image: url('/img/photo_5309907861373051055_y.jpg');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  height: 750px;
+}
+
+/* Верхняя часть заголовка */
+#header_top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(255, 222, 185, 0); /* Прозрачный фон */
+  border-radius: 25px; /* Закругленные углы */
+  position: relative;
+  z-index: 2;
+}
+
+/* Логотип */
+#logo {
+  display: flex;
+  align-items: center;
+}
+
+#logo img {
+  width: 25px;
+  height: auto;
+  margin-right: 10px;
+  margin-left: 25px;
+  margin-top: 25px;
+}
+
+#logo span {
+  font-weight: 900;
+  font-size: 22px;
+  margin-right: 15px;
+  color: #f5ead5;
+  margin-top: 15px;
+}
+
+/* Кнопка */
+#button button {
+  background-color: transparent;
+  border: 2px solid #f5ead5;
+  border-radius: 40px;
+  color: #f5ead5;
+  font-size: 1rem;
+  padding: 10px 20px;
+  margin-top: 25px;
+  margin-right: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+ 
+nav ul {
+  display: flex;
+  gap: 80px;
+  justify-content: center;
+  margin-top: 25px;
+}
+
+nav ul li {
+  list-style: none;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #f5ead5;
+}
+
+nav ul li a:hover {
+  color: #e9decb;
+}
+
+/* Анимация при наведении на кнопку */
+#button button:hover {
+  color: #e9decb;
+  border: 2px solid #e9decb;
+  transform: scale(1.1);
+}
+
+/* Полупрозрачное затемнение фона */
+#container::before {
+  content: ' ';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(27, 27, 27, 0.404);
+  z-index: 1;
+}
+
+/* Основная часть заголовка */
+#header_main {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#logo-container {
+  display: flex;
+  align-items: center;
+  margin-top: 30px;
+}
+
+#logo-container img {
+  width: 25px;
+  height: auto;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-bottom: 15px;
+}
+
+#logo-container span {
+  color: #ffffff;
+  margin: 10px;
+}
+
+#header-content {
+  text-align: center;
+  color: #f5ead5;
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#header-content h1 {
+  font-weight: 900;
+  font-size: 150px;
+  line-height: 0.8;
+  margin-bottom: 20px;
+}
+
+#header-content p {
+  font-size: 18px;
+}
+
+/* Стили для модального окна */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный фон */
+  animation: fadeIn 0.5s ease; /* Анимация появления модального окна */
+}
+
+/* Анимация появления модального окна */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Стили для модального контента */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Тень для модального окна */
+  width: 50%; /* Ширина модального окна */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Стили для кнопки закрытия */
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: rgb(24, 13, 0);
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+}
+
+.openModal:focus {
+  border: none;
+  outline: none;
+}
+
+/* Стили для оверлея */
+.modal-overlay {
+  position: relative;
+  z-index: -1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный фон */
+}
+
+/* Стили для кнопки Submit */
+.modal-content button[type="submit"] {
+  background-color: rgb(24, 13, 0); /* Коричневый цвет */
+  color: #fff; /* Белый цвет текста */
+  border: none;
+  border-radius: 5px;
+  padding: 15px 25px; /* Увеличим отступы вокруг текста кнопки */
+  font-size: 18px; /* Увеличим размер шрифта */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 20px; /* Отступ сверху */
+}
+
+.modal-content button[type="submit"]:hover {
+  background-color: rgb(12, 7, 0); /* Темнее коричневый цвет при наведении */
+}
+
+/* Стили для формы */
+.modal-content form {
+  margin-top: 20px;
+}
+
+/* Стили для меток */
+.modal-content form label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 18px;
+  color: rgb(24, 13, 0); /* Коричневый цвет */
+}
+
+/* Стили для полей ввода */
+.modal-content form input[type="text"],
+.modal-content form input[type="email"] {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-bottom: 20px;
+  transition: border-color 0.3s ease; /* Плавная анимация при наведении */
+}
+
+.modal-content form input[type="text"]:focus,
+.modal-content form input[type="email"]:focus {
+  border-color: rgb(24, 13, 0); /* Изменяем цвет границы при фокусировке */
+}
+
+
+/* Секция "О нас" */
+#why-us-flex,
+#about-flex, #process-flex, #testimony-flex {
+  display: flex; /* Используем флексбокс для расположения контейнеров на одном уровне */
+}
+
+#testimony-flex {
+  max-width: 1700px;
+}
+
+#why-left,
+#content, #process-right, #testimony-left {
+  width: 50%;
+  padding: 100px;
+}
+
+
+#why-right,
+#image-container, #process-left, #testimony-right {
+  width: 50%;
+  padding-top: 120px;
+  padding-right: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; /* Выравниваем элементы по правому краю */
+}
+
+#process {
+  background-color: #f0dfcc;
+  max-width: 100%;
+  margin-top: 40px;
+  padding: 40px;
+}
+
+#process-left {
+  margin-left: 100px;
+}
+
+#why-right h1,
+#content h2, #process-left h1, #testimony-right h1 {
+  font-weight: 900;
+  font-size: 120px;
+  margin-top: 0; 
+  margin-bottom: 20px; /* Уменьшим отступ для лучшей визуальной связи */
+  line-height: 0.8;
+}
+
+#testimony-right h1 {
+  max-width: 500px;
+}
+
+#content p {
+  max-width: 420px;
+  margin-bottom: 20px;
+}
+
+#content button {
+  padding: 10px 20px;
+  background-color: transparent;
+  border: 2px solid rgb(24, 13, 0);
+  border-radius: 40px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s ease;
+  margin-top: 20px; /* Уменьшим отступ между текстом и кнопкой */
+  margin-left: 300px;
+}
+
+#content button:hover {
+  color: rgb(29, 19, 5);
+  border-color: rgb(29, 19, 5); /* Изменим цвет при наведении на границу кнопки */
+  transform: scale(1.1);
+}
+
+.divider {
+  flex: 0 0 auto; /* Устанавливаем размер горизонтальной линии без учета контента */
+  border: none;
+  margin: auto 10px; /* Отступы между линией и содержимым */
+  height: 1px; /* Задаем высоту линии */
+  background-color: #25160436; /* Цвет линии */
+  margin: 15px 0; /* Отступы сверху и снизу */
+  width: 100%;
+}
+
+
+#image-container p {
+  font-weight: 900;
+  font-size: 25px;
+}
+
+#about-image img {
+  max-width: 420px; /* Чтобы изображение не выходило за границы контейнера */
+  height: auto;
+}
+
+#why-left img,
+#about-icon img, #process-right img, #testimony-left img {
+  width: 40px;
+  height: auto;
+}
+
+#why-left p, #process-right p, #testimony-left p{
+  margin-top: 30px;
+  margin-bottom: 20px;
+  max-width: 420px;
+}
+
+#why-left h2, #process-right h2, #testimony-left h2 {
+  margin-top: 15px;
+}
+
+#arguments, #process-content, #testimony-content {
+  margin-left: 90px;
+  margin-right: 90px;
+}
+
+#arguments h3,
+#image-container h3, #process-content h3, #testimony-content h3{
+  font-weight: 800;
+  font-size: 35px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+#process-content  h3 {
+  text-align: right;
+}
+
+#process-content {
+  white-space: nowrap;
+  margin: 0px;
+}
+
+#args-flex,#test-flex {
+  display: flex;
+  border: 1px solid;
+  border-color: #2516041c;
+  overflow: hidden;
+  border-top: none;
+  border-bottom: none;
+  margin-top: 20px;
+  margin-bottom: 200px;
+}
+
+#proc-cont-flex img{
+  display: inline-block; /* Размещаем изображения в строку */
+  vertical-align: middle; /* Выравниваем изображения по вертикали */
+  gap: 0;
+  margin: 0px;
+  padding: 0px;
+  transform: rotate(270deg); /* Угол поворота в градусах */
+}
+
+#proc-img {
+  transform: rotate(270deg); /* Угол поворота в градусах */
+  padding: 0px;
+  margin: 0px;
+  margin-right: 0px;
+}
+
+#arg, #test {
+  flex: 1;
+  padding: 20px;
+  text-align: center;
+  position: relative;
+  margin: 15px;
+}
+
+#arg, #test {
+  border-left: 1px solid #2516041c;
+}
+
+#arg:first-child, #test:first-child {
+  border: none;
+}
+
+#arg h2, #test h2 {
+  font-weight: 800;
+  margin-bottom: 30px;
+  color: rgb(29, 19, 5);
+  font-size: 80px;
+  line-height: 0.8;
+}
+
+#test h2 {
+  max-width: 500px;
+  text-align: right;
+  margin-left: 200px;
+}
+
+#arg p, #test p {
+  line-height: 1.5;
+  color: rgb(29, 19, 5)
+}
+
+#test p {
+  max-width: 500px;
+  text-align: right;
+  margin-left: 200px;
+}
+
+
+#footer {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+  background-color: rgb(29, 19, 5);
+  position: relative;
+  height: 750px;
+  display: flex;
+}
+
+#footer-main {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#footer-menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px 0;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+#logo-footer {
+  display: flex;
+  align-items: center;
+}
+  
+#logo-footer img {
+  width: 25px;
+  height: auto;
+  margin-right: 10px;
+  margin-left: 25px;
+}
+  
+#logo-footer span {
+  font-weight: 900;
+  font-size: 22px;
+  margin-right: 15px;
+  color: #f5ead5;
+}
+
+
+/* Анимация при наведении на кнопку */
+#button-footer button:hover {
+  color: #e9decb;
+  border: 2px solid #e9decb;
+  transform: scale(1.1);
+}
+
+#footer-main {
+  color: #f5ead5;
+  max-width: 500px;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  display: flex;
+  text-align: center;
+}
+
+#footer-main h1 {
+  font-weight: 900;
+  font-size: 150px;
+  line-height: 0.8;
+  margin-bottom: 45px;
+}
+
+#footer-main p {
+  font-size: 18px;
+  margin-bottom: 45px;
+}
+
+#button-footer button {
+  background-color: transparent;
+  border: 2px solid #f5ead5;
+  border-radius: 40px;
+  color: #f5ead5;
+  font-size: 1rem;
+  padding: 10px 20px;
+  margin-top: 25px;
+  margin-right: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}

@@ -1,0 +1,439 @@
+@media screen and (max-width: 480px) {
+  /* Общие стили */
+body {
+  font-size: 10px;
+  color: rgb(24, 13, 0);
+  background-color: #fcecdb;
+  font-family: "EB Garamond", serif;
+  font-weight: 500;
+  scroll-behavior: smooth;
+}
+
+/* Сброс стилей */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Контейнер */
+#container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 10px;
+  background-image: url('/img/photo_5309907861373051055_y.jpg');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  height: auto;
+}
+
+/* Верхняя часть заголовка */
+#header_top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(255, 222, 185, 0); /* Прозрачный фон */
+  border-radius: 25px; /* Закругленные углы */
+  position: relative;
+  z-index: 2;
+  padding: 10px 0;
+}
+
+/* Логотип */
+#logo {
+  display: flex;
+  align-items: center;
+}
+
+#logo img {
+  width: 5px;
+  height: auto;
+  margin-right: 5px;
+  margin-left: 10px;
+}
+
+#logo span {
+  font-weight: 700;
+  font-size: 12px;
+  color: #f5ead5;
+}
+
+/* Кнопка */
+#button button {
+  background-color: transparent;
+  border: 1px solid #f5ead5;
+  border-radius: 30px;
+  color: #f5ead5;
+  font-size: 0.8rem;
+  padding: 4px 5px;
+  margin-top: 5px;
+  margin-right: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Навигация */
+nav ul {
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+  margin-top: 5px;
+}
+
+nav ul li {
+  list-style: none;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #f5ead5;
+}
+
+nav ul li a:hover {
+  color: #e9decb;
+}
+
+/* Анимация при наведении на кнопку */
+#button button:hover {
+  color: #e9decb;
+  border: 1px solid #e9decb;
+  transform: scale(1.1);
+}
+
+/* Полупрозрачное затемнение фона */
+#container::before {
+  content: ' ';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(27, 27, 27, 0.404);
+  z-index: 1;
+}
+
+/* Основная часть заголовка */
+#header_main {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 10px 0;
+}
+
+#header-content {
+  color: #f5ead5;
+  max-width: 90%;
+  margin: 0 auto;
+  padding: 0 5px;
+}
+
+#header-content h1 {
+  font-weight: 700;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+#header-content p {
+  font-size: 10px;
+  line-height: 1.5;
+  margin-bottom: 5px;
+}
+
+/* Стили для модального окна */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный фон */
+  animation: fadeIn 0.5s ease; /* Анимация появления модального окна */
+}
+
+/* Анимация появления модального окна */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Стили для модального контента */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 5px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Тень для модального окна */
+  width: 90%; /* Ширина модального окна */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Стили для кнопки закрытия */
+.close {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  color: rgb(24, 13, 0);
+  font-size: 10px;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+}
+
+.openModal:focus {
+  border: none;
+  outline: none;
+}
+
+/* Стили для оверлея */
+.modal-overlay {
+  position: fixed;
+  z-index: 998;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный фон */
+}
+
+/* Стили для кнопки Submit */
+.modal-content button[type="submit"] {
+  background-color: rgb(24, 13, 0); /* Коричневый цвет */
+  color: #fff; /* Белый цвет текста */
+  border: none;
+  border-radius: 5px;
+  padding: 5px 8px; /* Увеличим отступы вокруг текста кнопки */
+  font-size: 12px; /* Увеличим размер шрифта */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 8px; /* Отступ сверху */
+}
+
+.modal-content button[type="submit"]:hover {
+  background-color: rgb(12, 7, 0); /* Темнее коричневый цвет при наведении */
+}
+
+/* Стили для формы */
+.modal-content form {
+  margin-top: 8px;
+}
+
+/* Стили для меток */
+.modal-content form label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 12px;
+  color: rgb(24, 13, 0); /* Коричневый цвет */
+}
+
+/* Стили для полей ввода */
+.modal-content form input[type="text"],
+.modal-content form input[type="email"] {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 10px;
+  margin-bottom: 8px;
+  transition: border-color 0.3s ease; /* Плавная анимация при наведении */
+}
+
+.modal-content form input[type="text"]:focus,
+.modal-content form input[type="email"]:focus {
+  border-color: rgb(24, 13, 0); /* Изменяем цвет границы при фокусировке */
+}
+
+/* Секция "О нас" */
+#why-us-flex,
+#about-flex, #process-flex, #testimony-flex {
+  display: flex; /* Используем флексбокс для расположения контейнеров на одном уровне */
+  flex-wrap: wrap; /* Разрешаем перенос элементов на новую строку */
+}
+
+#why-left,
+#content, #process-right, #testimony-left {
+  width: 100%; /* Занимает всю доступную ширину */
+  padding: 5px;
+}
+
+#why-right,
+#image-container, #process-left, #testimony-right {
+  width: 100%; /* Занимает всю доступную ширину */
+  padding: 8px;
+}
+
+#process {
+  background-color: #f0dfcc;
+  width: 100%; /* Занимает всю доступную ширину */
+  padding: 8px;
+  margin-top: 8ppx;
+}
+
+#why-right h1,
+#content h2, #process-left h1, #testimony-right h1 {
+  font-size: 12px;
+  margin-bottom: 5px; /* Уменьшим отступ для лучшей визуальной связи */
+}
+
+#content p {
+  max-width: 100%; /* Занимает всю доступную ширину */
+  margin-bottom: 5px;
+}
+
+#content button {
+  margin-left: 0; /* Изменяем отступ, чтобы кнопка находилась по центру */
+}
+
+.divider {
+  flex: 0 0 100%; /* Занимает всю доступную ширину */
+  height: 1px; /* Задаем высоту линии */
+  background-color: #25160436; /* Цвет линии */
+  margin: 5px 0; /* Отступы сверху и снизу */
+}
+
+#image-container p {
+  font-size: 12px;
+}
+
+#about-image img {
+  max-width: 20%; /* Чтобы изображение не выходило за границы контейнера */
+  height: auto;
+}
+
+#why-left img,
+#about-icon img, #process-right img, #testimony-left img {
+  max-width: 12px;
+  height: auto;
+}
+
+#why-left p, #process-right p, #testimony-left p{
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+#why-left h2, #process-right h2, #testimony-left h2 {
+  margin-top: 5px;
+}
+
+#arguments, #process-content, #testimony-content {
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+#arguments h3,
+#image-container h3, #process-content h3, #testimony-content h3{
+  font-size: 8px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+#process-content  h3 {
+  text-align: center;
+}
+
+#process-content {
+  white-space: normal; /* Возврат к обычному переносу строк */
+}
+
+#args-flex,#test-flex {
+  border: 1px solid;
+  border-color: #2516041c;
+  overflow: hidden;
+  border-top: none;
+  border-bottom: none;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+#proc-cont-flex img{
+  display: inline-block; /* Размещаем изображения в строку */
+  vertical-align: middle; /* Выравниваем изображения по вертикали */
+  gap: 0;
+  margin: 0px;
+  padding: 0px;
+  max-width: 20%;
+}
+
+#proc-img {
+  padding: 0px;
+  margin: 0px;
+  margin-right: 0px;
+}
+
+#arg, #test {
+  padding: 5px;
+  text-align: center;
+  position: relative;
+  margin: 2px;
+}
+
+#arg, #test {
+  border-left: 1px solid #2516041c;
+}
+
+#arg:first-child, #test:first-child {
+  border: none;
+}
+
+#arg h2, #test h2 {
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+
+#arg p, #test p {
+  margin-bottom: 5px;
+}
+
+/* Футер */
+#footer {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 8px;
+  background-color: rgb(29, 19, 5);
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#footer-main {
+  color: #f5ead5;
+  max-width: 100%;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+#footer-main h1 {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+#footer-main p {
+  font-size: 10px;
+  margin-bottom: 5px;
+}
+
+#button-footer button {
+  font-size: 0.8rem;
+  padding: 4px 5px;
+  margin-top: 5px;
+  margin-right: 3px;
+}
+
+}
